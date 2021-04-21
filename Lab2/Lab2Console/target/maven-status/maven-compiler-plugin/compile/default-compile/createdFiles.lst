@@ -1,0 +1,17 @@
+com\mycompany\lab2standalone\UpdatePersonResponse.class
+com\mycompany\lab2standalone\Person.class
+com\mycompany\lab2standalone\CreateRequest.class
+com\mycompany\lab2standalone\FindRequest.class
+com\mycompany\lab2standalone\GetPersons.class
+com\mycompany\lab2standalone\FieldsInter.class
+com\mycompany\lab2standalone\ObjectFactory.class
+com\mycompany\lab2standalone\UpdateRequest.class
+com\mycompany\lab2standalone\CreatePerson.class
+com\mycompany\lab2standalone\CreatePersonResponse.class
+com\mycompany\lab2standalone\UpdatePerson.class
+com\mycompany\lab2standalone\DeletePerson.class
+com\mycompany\lab2standalone\GetPersonsResponse.class
+com\mycompany\lab2standalone\DeletePersonResponse.class
+com\mycompany\lab2standalone\package-info.class
+com\mycompany\lab2standalone\PersonWebService.class
+com\mycompany\lab2standalone\PersonService.class

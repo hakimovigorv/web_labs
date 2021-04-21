@@ -1,0 +1,9 @@
+com\mycompany\lab1standalone\Person.class
+com\mycompany\lab1standalone\package-info.class
+com\mycompany\lab1standalone\ObjectFactory.class
+com\mycompany\lab1standalone\GetPersonsResponse.class
+com\mycompany\lab1standalone\GetPersons.class
+com\mycompany\lab1standalone\FieldsInter.class
+com\mycompany\lab1standalone\FindRequest.class
+com\mycompany\lab1standalone\PersonWebService.class
+com\mycompany\lab1standalone\PersonService.class

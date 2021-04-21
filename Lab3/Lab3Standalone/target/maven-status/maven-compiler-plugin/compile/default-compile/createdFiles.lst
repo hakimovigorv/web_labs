@@ -1,0 +1,11 @@
+com\mycompany\lab3standalone\interaction\FieldsInter.class
+com\mycompany\lab3standalone\interaction\FindRequest.class
+com\mycompany\lab3standalone\PostgreSQLDAO.class
+com\mycompany\lab3standalone\interaction\Person.class
+com\mycompany\lab3standalone\Person.class
+com\mycompany\lab3standalone\Fields.class
+com\mycompany\lab3standalone\App.class
+com\mycompany\lab3standalone\PersonWebService.class
+com\mycompany\lab3standalone\interaction\CreateRequest.class
+com\mycompany\lab3standalone\interaction\UpdateRequest.class
+com\mycompany\lab3standalone\ConnectionUtil.class
