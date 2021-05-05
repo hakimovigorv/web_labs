@@ -1,0 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mycompany.lab4ee;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
+@RequestScoped
+@Path("/persons")
+@Produces({MediaType.APPLICATION_JSON})
+public class PersonResource {
+ @GET
+ public List<Person> getPersons(@QueryParam("name") String name, @QueryParam("surname") String surname, @QueryParam("age") Integer age, @QueryParam("birthplace") String birthplace, @QueryParam("university") String university){
+    List<Fields> fields = new ArrayList<>();
+    fields.add(new Fields("name", name));
+    fields.add(new Fields("surname", surname));
+    fields.add(new Fields("age", age));
+    fields.add(new Fields("birthplace", birthplace));
+    fields.add(new Fields("university", university));
+    List<Person> persons = new PostgreSQLDAO().getPersons(fields);
+    return persons;
+ }
+}

@@ -1,0 +1,6 @@
+com\mycompany\lab5standalone\App.class
+com\mycompany\lab5standalone\PersonResource.class
+com\mycompany\lab5standalone\Fields.class
+com\mycompany\lab5standalone\PostgreSQLDAO.class
+com\mycompany\lab5standalone\ConnectionUtil.class
+com\mycompany\lab5standalone\Person.class
