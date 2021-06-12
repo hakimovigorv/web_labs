@@ -9,9 +9,11 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import java.util.ArrayList;
+import javax.xml.ws.soap.MTOM;
 
-
-@WebService(serviceName = "PersonService")
+@MTOM
+@WebService(name="MtomPortType",
+        serviceName = "PersonService")
 public class PersonWebService {
     @WebMethod(operationName = "getPersons")
     public List<Person> getPersons(@WebParam(name = "fields") FindRequest findRequest) {
@@ -49,4 +51,9 @@ public class PersonWebService {
         PostgreSQLDAO dao = new PostgreSQLDAO();
         return dao.deletePerson(id);
     }
+    
+    @WebMethod(operationName = "echoBinary")
+        public byte[] echoBinary(byte[] bytes) {
+    return bytes;
+  }
 }
