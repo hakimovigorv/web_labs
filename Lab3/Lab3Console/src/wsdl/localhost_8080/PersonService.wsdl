@@ -4,62 +4,75 @@
 <xsd:import namespace="http://lab3standalone.mycompany.com/" schemaLocation="http://localhost:8080/PersonService?xsd=1" />
 </xsd:schema>
 </types>
-<message name="updatePerson">
-<part name="parameters" element="tns:updatePerson" />
+<message name="deletePerson">
+<part name="request" type="xsd:int" />
 </message>
-<message name="updatePersonResponse">
-<part name="parameters" element="tns:updatePersonResponse" />
+<message name="deletePersonResponse">
+<part name="return" type="xsd:string" />
 </message>
 <message name="NotFoundException">
 <part name="fault" element="tns:NotFoundException" />
 </message>
-<message name="getPersons">
-<part name="parameters" element="tns:getPersons" />
-</message>
-<message name="getPersonsResponse">
-<part name="parameters" element="tns:getPersonsResponse" />
-</message>
 <message name="createPerson">
-<part name="parameters" element="tns:createPerson" />
+<part name="request" type="tns:createRequest" />
 </message>
 <message name="createPersonResponse">
-<part name="parameters" element="tns:createPersonResponse" />
+<part name="return" type="xsd:int" />
 </message>
-<message name="deletePerson">
-<part name="parameters" element="tns:deletePerson" />
+<message name="getPersons">
+<part name="fields" type="tns:findRequest" />
 </message>
-<message name="deletePersonResponse">
-<part name="parameters" element="tns:deletePersonResponse" />
+<message name="getPersonsResponse">
+<part name="return" type="xsd:string" />
 </message>
-<portType name="PersonWebService">
-<operation name="updatePerson">
-<input message="tns:updatePerson" />
-<output message="tns:updatePersonResponse" />
+<message name="updatePerson">
+<part name="request" type="tns:updateRequest" />
+</message>
+<message name="updatePersonResponse">
+<part name="return" type="xsd:string" />
+</message>
+<portType name="PersonServiceI">
+<operation name="deletePerson">
+<input message="tns:deletePerson" />
+<output message="tns:deletePersonResponse" />
+<fault message="tns:NotFoundException" name="NotFoundException" />
+</operation>
+<operation name="createPerson">
+<input message="tns:createPerson" />
+<output message="tns:createPersonResponse" />
 <fault message="tns:NotFoundException" name="NotFoundException" />
 </operation>
 <operation name="getPersons">
 <input message="tns:getPersons" />
 <output message="tns:getPersonsResponse" />
 </operation>
-<operation name="createPerson">
-<input message="tns:createPerson" />
-<output message="tns:createPersonResponse" />
-</operation>
-<operation name="deletePerson">
-<input message="tns:deletePerson" />
-<output message="tns:deletePersonResponse" />
+<operation name="updatePerson">
+<input message="tns:updatePerson" />
+<output message="tns:updatePersonResponse" />
 <fault message="tns:NotFoundException" name="NotFoundException" />
 </operation>
 </portType>
-<binding name="PersonWebServicePortBinding" type="tns:PersonWebService">
-<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="updatePerson">
+<binding name="PersonWebServicePortBinding" type="tns:PersonServiceI">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+<operation name="deletePerson">
 <soap:operation soapAction="" />
 <input>
-<soap:body use="literal" />
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
 </input>
 <output>
-<soap:body use="literal" />
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
+</output>
+<fault name="NotFoundException">
+<soap:fault name="NotFoundException" use="literal" />
+</fault>
+</operation>
+<operation name="createPerson">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
+</input>
+<output>
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
 </output>
 <fault name="NotFoundException">
 <soap:fault name="NotFoundException" use="literal" />
@@ -68,28 +81,19 @@
 <operation name="getPersons">
 <soap:operation soapAction="" />
 <input>
-<soap:body use="literal" />
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
 </input>
 <output>
-<soap:body use="literal" />
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
 </output>
 </operation>
-<operation name="createPerson">
+<operation name="updatePerson">
 <soap:operation soapAction="" />
 <input>
-<soap:body use="literal" />
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
 </input>
 <output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="deletePerson">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
+<soap:body use="literal" namespace="http://lab3standalone.mycompany.com/" />
 </output>
 <fault name="NotFoundException">
 <soap:fault name="NotFoundException" use="literal" />

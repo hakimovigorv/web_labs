@@ -65,11 +65,11 @@ public class PersonService
     /**
      * 
      * @return
-     *     returns PersonWebService
+     *     returns PersonServiceI
      */
     @WebEndpoint(name = "PersonWebServicePort")
-    public PersonWebService getPersonWebServicePort() {
-        return super.getPort(new QName("http://lab3standalone.mycompany.com/", "PersonWebServicePort"), PersonWebService.class);
+    public PersonServiceI getPersonWebServicePort() {
+        return super.getPort(new QName("http://lab3standalone.mycompany.com/", "PersonWebServicePort"), PersonServiceI.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class PersonService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns PersonWebService
+     *     returns PersonServiceI
      */
     @WebEndpoint(name = "PersonWebServicePort")
-    public PersonWebService getPersonWebServicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://lab3standalone.mycompany.com/", "PersonWebServicePort"), PersonWebService.class, features);
+    public PersonServiceI getPersonWebServicePort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://lab3standalone.mycompany.com/", "PersonWebServicePort"), PersonServiceI.class, features);
     }
 
     private static URL __getWsdlLocation() {
