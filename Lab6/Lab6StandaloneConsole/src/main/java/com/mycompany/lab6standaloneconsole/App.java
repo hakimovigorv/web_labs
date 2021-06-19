@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
+import sun.misc.BASE64Encoder;
 
 public class App {
 
@@ -91,7 +92,7 @@ public class App {
         }
         webResource = webResource.queryParams(queryParams);
 
-        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON).post(ClientResponse.class);
+        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON).header("Authorization", "Basic " + getAuthString()).post(ClientResponse.class);
         if (response.getStatus() != ClientResponse.Status.OK.getStatusCode()) {
             throw new IllegalStateException("Request failed");
         }
@@ -122,7 +123,7 @@ public class App {
         }
         webResource = webResource.queryParams(queryParams);
 
-        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON).put(ClientResponse.class);
+        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON).header("Authorization", "Basic " + getAuthString()).put(ClientResponse.class);
         /*if (response.getStatus() != ClientResponse.Status.OK.getStatusCode()) {
             throw new IllegalStateException("Request failed");
         }*/
@@ -134,7 +135,7 @@ public class App {
         if (id != null) {
             webResource = webResource.queryParam("id", id);
         }
-        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON).delete(ClientResponse.class);
+        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON).header("Authorization", "Basic " + getAuthString()).delete(ClientResponse.class);
         /*if (response.getStatus() != ClientResponse.Status.OK.getStatusCode()) {
             throw new IllegalStateException("Request failed");
         }*/
@@ -146,5 +147,14 @@ public class App {
         for (Person person : persons) {
             System.out.println(person);
         }
+    }
+    
+    static String getAuthString(){
+        String name = "username";
+        String password = "password";
+        String authString = name + ":" + password;
+        String authStringEnc = new BASE64Encoder().encode(authString.getBytes());
+        //System.out.println("Base64 encoded auth string: " + authStringEnc);
+        return authStringEnc;
     }
 }
